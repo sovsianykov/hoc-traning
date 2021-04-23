@@ -1,9 +1,13 @@
-import React, {useEffect, useState} from "react";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchCountry } from "../redux/actions";
 
 
 function Homepage({result}) {
-
+    const dispatch = useDispatch()
+     useEffect(() => {
+         dispatch(fetchCountry())
+     },[dispatch])
 
 
 
