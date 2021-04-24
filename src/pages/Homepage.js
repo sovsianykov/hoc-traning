@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { fetchCountry } from "../redux/actions";
+import {useSelector} from "react-redux/lib/alternate-renderers";
 
 
 function Homepage({result}) {
@@ -8,13 +9,14 @@ function Homepage({result}) {
      useEffect(() => {
          dispatch(fetchCountry())
      },[dispatch])
-
+     const state = useSelector(state => state)
+    console.log(state)
 
 
     return (
         <div className="home">
 
-           <h1>Home inside</h1>
+           <p>Home inside</p>
              <p>{result}</p>
         </div>
     );

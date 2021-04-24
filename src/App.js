@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
-import { WithFetchingData } from "./hoc/WithFetchingData";
+import { WithHoc } from "./hoc/WithHoc";
 import Homepage from "./pages/Homepage";
+import {useDispatch} from "react-redux";
+import { fetchCountry } from "./redux/actions";
 function App() {
 
 
-const EnhancedHome = WithFetchingData(Homepage)
-
+const EnhancedHome = WithHoc(Homepage)
+ const dispatch = useDispatch()
   return (
     <div className="App">
-      <EnhancedHome/>
-
-
+      <EnhancedHome onClick = {dispatch(fetchCountry())}  />
     </div>
   );
 }
