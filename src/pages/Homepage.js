@@ -1,7 +1,7 @@
 import React, { useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { fetchCountry } from "../redux/actions";
-import {useSelector} from "react-redux/lib/alternate-renderers";
+import {useSelector} from "react-redux";
 
 
 function Homepage({result}) {
@@ -9,7 +9,7 @@ function Homepage({result}) {
      useEffect(() => {
          dispatch(fetchCountry())
      },[dispatch])
-     const state = useSelector(state => state)
+     const state = useSelector(state => state.fetch.countries)
     console.log(state)
 
 
